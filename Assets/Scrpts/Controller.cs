@@ -7,9 +7,9 @@ public class Controller : MonoBehaviour
     public float Graviyty = 9.8f;
     public float JumpForce;
     public float Speed;
+    private Vector3 _vector;
     private float _fallSpead = 0;
     private CharacterController _CC;
-    private Vector3 _vector;
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +19,6 @@ public class Controller : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _CC.isGrounded)
-        {
-            _fallSpead = -JumpForce;
-        }
         Debug.Log(_CC.isGrounded);
         //бег
         _vector = Vector3.zero;
@@ -42,22 +38,27 @@ public class Controller : MonoBehaviour
         {
             _vector -= transform.right;
         }
+        if (Input.GetKeyDown(KeyCode.Space) && _CC.isGrounded)
+        {
+            _fallSpead = -JumpForce;
+        }
 
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        // бег
+        _CC.Move(_vector * Speed * Time.fixedDeltaTime);
+
         _fallSpead += Graviyty * Time.fixedDeltaTime;
+        _CC.Move(Vector3.down * _fallSpead * Time.fixedDeltaTime);
 
         if (_CC.isGrounded)
         {
             _fallSpead = 0;
         }
-        _CC.Move(Vector3.down * _fallSpead * Time.fixedDeltaTime);
 
 
-        // бег
-        _CC.Move(_vector * Speed * Time.fixedDeltaTime);
     }
 }   
