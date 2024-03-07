@@ -10,24 +10,26 @@ public class PlayerHealth : MonoBehaviour
     public  GameObject PlayerUI;
     public GameObject GameOverUI;
     public float RepearScene = 1;
-    public float DM = 25;
+    public GameObject HealEffect;
 
-    private float CurrentValue;
+
+    private float _CurrentValue;
+   
+
 
 
     void Start()
     {
-        CurrentValue = 100;
+        _CurrentValue = MaxValue;
         UpdateHealthbar();
     }
 
    
    public void TakeDamage(float damage)
     {
-        CurrentValue -= DM;
-        if(CurrentValue <= 0)
+        _CurrentValue -= damage;
+        if(_CurrentValue <= 0)
         {
-            CurrentValue = 0;
             RepearScene = 0;
             PlayerUI.SetActive(false);
             GameOverUI.SetActive(true);
@@ -39,9 +41,20 @@ public class PlayerHealth : MonoBehaviour
        
     }
 
+    public void AddHealth(float amout)
+    {
+        _CurrentValue = _CurrentValue + amout;
+        if (_CurrentValue > MaxValue)
+        {
+            _CurrentValue = MaxValue;
+        }
+        HealEffect.GetComponent<ParticleSystem>().Play();
+        UpdateHealthbar();
+    }
+
     void UpdateHealthbar()
     {
-        HealthBar.value = CurrentValue/MaxValue;
+        HealthBar.value = _CurrentValue;
     }
 
    

@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour
 
     private NavMeshAgent _navMeshAgent;
     private bool _isPlayer;
-    private float HitDistance = 1;
+    private float HitDistance = 1f;
     
 
     void Start()
