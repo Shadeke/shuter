@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetPoint: {fileID: 5208692826014075384}
   CameraLink: {fileID: 8448911094483039044}
+  SkyHelper: 0
 --- !u!1 &4481053765844462574
 GameObject:
   m_ObjectHideFlags: 0

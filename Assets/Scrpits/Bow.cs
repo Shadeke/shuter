@@ -6,8 +6,8 @@ public class Bow : MonoBehaviour
 {
     public Arrow Arrow;
     public float KImpulse;
+    public float ShotImpulse = 0f;
 
-    private float _impulse = 0;
     private Rigidbody _rigidbody;
 
     private void Start()
@@ -16,15 +16,17 @@ public class Bow : MonoBehaviour
     }
     private void Update()
     {
-        while(Input.GetMouseButtonDown(0)&& _impulse < 1000)
+
+        while (Input.GetMouseButtonDown(0)&& ShotImpulse < 90)
         {
-            _impulse = _impulse + 10;  
+            InvokeRepeating("ChargeAccumulation", 0, 3);
         }
-        if(Input.GetMouseButtonUp(0) && _impulse > 0)
-        {
-            Instantiate(Arrow, transform.position, transform.rotation);
-           
-            _impulse = 0;
-        }
+
     }
+    void ChargeAccumulation()
+    {
+        // Это вспомогательная штука
+            ShotImpulse = ShotImpulse + 30;
+    }
+
 }

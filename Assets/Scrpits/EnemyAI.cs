@@ -13,40 +13,30 @@ public class EnemyAI : MonoBehaviour
 
     private NavMeshAgent _navMeshAgent;
     private bool _isPlayer;
-    private float S;
+    private float HitDistance = 1;
+    
 
     void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
+
     }
    
     void Update()
     {
         var direction = Player.transform.position - transform.position;
-       
 
-        _isPlayer = false;
-        if (Vector3.Angle(transform.forward, direction) < ViewAngele )
+        PlayerCheck();
+        var _hp = Player.GetComponent<PlayerHealth>();
+        if (_isPlayer == true)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position + Vector3.up, direction, out hit))
+            _navMeshAgent.SetDestination(Player.transform.position);
+            if(_navMeshAgent.remainingDistance <= HitDistance)
             {
-                if (hit.collider.gameObject == Player.gameObject)
-                {
-                    _isPlayer = true;
-                }
-
-                if (_navMeshAgent.remainingDistance == 0)
-                {
-                    _navMeshAgent.destination = Points[Random.Range(0, Points.Count)].position;
-                }
-               
+                _hp.TakeDamage(1);
             }
         }
-        if (MinDetectDistance >= direction.magnitude)
-        {
-            _isPlayer = true;
-        }    
+
 
         // Погоня
         if (_isPlayer)
@@ -60,7 +50,34 @@ public class EnemyAI : MonoBehaviour
                 _navMeshAgent.destination = Points[Random.Range(0, Points.Count)].position;
             }
         }
+        
 
+    }
+     void PlayerCheck()
+    {
+        var direction = Player.transform.position - transform.position;
+        _isPlayer = false;
+        if (Vector3.Angle(transform.forward, direction) < ViewAngele)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position + Vector3.up, direction, out hit))
+            {
+                if (hit.collider.gameObject == Player.gameObject)
+                {
+                    _isPlayer = true;
+                }
+
+                if (_navMeshAgent.remainingDistance == 0)
+                {
+                    _navMeshAgent.destination = Points[Random.Range(0, Points.Count)].position;
+                }
+
+            }
+        }
+        if (MinDetectDistance >= direction.magnitude)
+        {
+            _isPlayer = true;
+        }
 
     }
 }

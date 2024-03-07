@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    void Start()
-    {
-
-    }
+    private Rigidbody RG;
 
     void Update()
     {
-
+        BowShot();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -22,4 +19,14 @@ public class Arrow : MonoBehaviour
     {
         Destroy(gameObject);
     }
+     void BowShot()
+    {
+        var Shot = gameObject.GetComponent<Bow>();
+        if (Input.GetMouseButtonUp(0) && Shot.ShotImpulse > 0)
+        {
+            RG.AddForce(Vector3.forward * Shot.ShotImpulse, ForceMode.Impulse);
+        }
+
+    }
+
 }
