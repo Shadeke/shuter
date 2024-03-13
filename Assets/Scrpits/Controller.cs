@@ -53,7 +53,7 @@ public class Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && _CC.isGrounded)
         {
             _fallSpead = -JumpForce;
-            Anim.SetBool("Jump", false);
+            Anim.SetTrigger("Jump 0");
         }
 
     }

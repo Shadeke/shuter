@@ -12,5 +12,13 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+    public void DealDamage(float damage)
+    {
+        Value -= damage;
+        if (Value <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }
