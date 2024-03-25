@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3890555801514882480}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.005, y: 1.432, z: 0.235}
+  m_LocalRotation: {x: -0.29057902, y: -0.16564932, z: -0.028968288, w: 0.9419581}
+  m_LocalPosition: {x: 0.005, y: 1.4320002, z: 0.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8448911094185730814}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -33.850002, y: -20.824001, z: 2.878}
 --- !u!114 &5965452792059840433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,13 +148,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5869344000280427066}
-  m_LocalRotation: {x: -0.33738706, y: -0, z: -0, w: 0.9413661}
-  m_LocalPosition: {x: -0.01, y: 1.3400002, z: 0.15}
+  m_LocalRotation: {x: -0.29369146, y: -0.000500472, z: -0.00015376536, w: 0.95590013}
+  m_LocalPosition: {x: -0.01, y: 1.3889999, z: 0.209}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8448911094185730814}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: -39.436, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -34.158, y: -0.060000002, z: 0}
 --- !u!1 &8448911094185730815
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,8 +167,9 @@ GameObject:
   - component: {fileID: 8448911094185730813}
   - component: {fileID: 8448911094185730811}
   - component: {fileID: 8448911094185730812}
-  - component: {fileID: 4426237197079895578}
   - component: {fileID: 6822861192357451893}
+  - component: {fileID: 5760946799099997213}
+  - component: {fileID: 1729511317582926598}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -245,21 +246,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &4426237197079895578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8448911094185730815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0903030c854a4a649a7c8744fdfb2516, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Arrow: {fileID: 0}
-  KImpulse: 0
-  ShotImpulse: 0
 --- !u!114 &6822861192357451893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +261,42 @@ MonoBehaviour:
   FireBallPrefab: {fileID: 7038806848587377989, guid: e7cf3f50fb09c7546873afc7fd1522fe,
     type: 3}
   MomOfFireBall: {fileID: 5648713418797861378}
+--- !u!114 &5760946799099997213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448911094185730815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0903030c854a4a649a7c8744fdfb2516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Arrow: {fileID: 2546921638938281317, guid: dce59056408fc364a8986893971926b0, type: 3}
+  KImpulse: 0
+  SpawnPoint: {fileID: 5648713418797861378}
+  QuantityArrow: 5
+  MaxImpulse: 33
+  VImpulse: 11
+--- !u!114 &1729511317582926598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448911094185730815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8145d6431af6241b6cc07524649d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxValue: 100
+  HealthBar: {fileID: 0}
+  PlayerUI: {fileID: 0}
+  GameOverUI: {fileID: 0}
+  RepearScene: 1
+  HealEffect: {fileID: 0}
 --- !u!1 &8448911094483039046
 GameObject:
   m_ObjectHideFlags: 0

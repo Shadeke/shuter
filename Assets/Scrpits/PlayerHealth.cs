@@ -9,7 +9,6 @@ public class PlayerHealth : MonoBehaviour
     public Slider HealthBar;
     public  GameObject PlayerUI;
     public GameObject GameOverUI;
-    public float RepearScene = 1;
     public GameObject HealEffect;
 
 
@@ -30,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
         _CurrentValue -= damage;
         if(_CurrentValue <= 0)
         {
-            RepearScene = 0;
+
             PlayerUI.SetActive(false);
             GameOverUI.SetActive(true);
             GetComponent<Controller>().enabled = false;

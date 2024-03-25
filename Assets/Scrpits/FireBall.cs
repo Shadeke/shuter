@@ -12,6 +12,7 @@ public class FireBall : MonoBehaviour
     {
         Invoke("DestroyFireBall", LifeTime);
     }
+
     void FixedUpdate()
     {
         VFireBAll();
@@ -32,6 +33,7 @@ public class FireBall : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
     private void DamageHealth(Collision collision)
     {
         var health = collision.gameObject.GetComponent<Health>();

@@ -7,8 +7,11 @@ public class ReloadScene : MonoBehaviour
 {
     void Update()
     {
-        var Sceane = gameObject.GetComponent<PlayerHealth>();
-        if (Input.GetKeyDown(KeyCode.Space) && Sceane.RepearScene == 0)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

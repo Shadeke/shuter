@@ -13,6 +13,6 @@ public class FireBaller : MonoBehaviour
         {
             Instantiate(FireBallPrefab, MomOfFireBall.position, MomOfFireBall.rotation);
            
-        }
+        } 
     }
 }

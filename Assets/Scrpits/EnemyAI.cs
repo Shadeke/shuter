@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
             _navMeshAgent.SetDestination(Player.transform.position);
             if(_navMeshAgent.remainingDistance <= HitDistance)
             {
-                _hp.TakeDamage(1);
+                _hp.TakeDamage(25 * Time.deltaTime);
             }
         }
 
@@ -74,10 +74,6 @@ public class EnemyAI : MonoBehaviour
 
             }
         }
-        if (MinDetectDistance >= direction.magnitude)
-        {
-            _isPlayer = true;
-        }
-
+       
     }
 }
